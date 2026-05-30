@@ -1,31 +1,35 @@
 ---
 layout: layouts/base.njk
-section: post
 ---
+<article class="max-w-3xl mx-auto bg-slate-900/40 border border-slate-800 rounded-2xl p-6 md:p-10 backdrop-blur shadow-xl">
+  
+  <header class="border-b border-slate-800 pb-6 mb-8">
+    <div class="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-widest mb-3">
+      <span>Log Entry</span>
+      <span>•</span>
+      <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time>
+    </div>
+    <h1 class="text-3xl md:text-4xl font-black tracking-tight text-slate-100 mb-4">
+      {{ title }}
+    </h1>
+    {% if description %}
+      <p class="text-base text-slate-400 italic font-sans">
+        {{ description }}
+      </p>
+    {% endif %}
+  </header>
 
-<article>
-  <h1>{{ title }}</h1>
-  <p>
-    <small>
-      <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time> by <a href="/authors/{{ author | slug }}/">{{ author }}</a>
-    </small>
-  </p>
+  <div class="prose prose-invert max-w-none font-sans text-slate-300 leading-relaxed space-y-4 
+              prose-headings:text-slate-100 prose-headings:font-bold prose-headings:tracking-tight
+              prose-a:text-cyan-400 hover:prose-a:text-amber-500 prose-a:transition
+              prose-code:text-amber-400 prose-code:bg-slate-950 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-xs">
+    {{ content | safe }}
+  </div>
 
-  {{ content | safe }}
-
-  {% if tags %}
-    <p>
-    {% for tag in tags %}
-      {%- if tag != "post" -%}
-        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-        <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
-      {%- endif -%}
-    {% endfor %}
-    </p>
-  {% endif %}
+  <footer class="mt-12 pt-6 border-t border-slate-800/60">
+    <a href="/" class="inline-flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-amber-500 transition group">
+      <span class="transform group-hover:-translate-x-1 transition-transform">←</span> Back to station dashboard
+    </a>
+  </footer>
 
 </article>
-
-<nav>
-  <a href="{{ '/blog/' | url }}">← Blog index</a>
-</nav>
