@@ -1,5 +1,16 @@
 {
-  "title": "Eleventy Netlify Boilerplate",
-  "description": "A template for building a simple blog website with the Eleventy static site generator, Decap CMS, and with deployment to Netlify.",
-  "url": "https://eleventy-netlify-boilerplate.netlify.app"
+  "title": "M7KQX Radio Station Hub",
+  "url": "https://m7kqx.co.uk/",
+  "description": "Amateur radio logs, QRP operations, and homebrew antenna projects from Warrington, UK.",
+  "feed": {
+    "subtitle": "Amateur radio logs and project updates.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://m7kqx.co.uk/"
+  },
+  "author": {
+    "name": "Christopher Webster (M7KQX)",
+    "email": "your-email@example.com",
+    "url": "https://m7kqx.co.uk/about/"
+  }
 }
