@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or "M7KQX Amateur Radio Portal" }}</title>
+    <meta name="description" content="{{ description or "Amateur radio portal, antenna builds, and gear reviews." }}">
+    
+    <style>
+      {% include "assets/css/inline.css" %}
+    </style>
+  </head>
+  <body class="bg-slate-900 text-slate-100 font-sans min-h-screen antialiased">
+
+    {{ content | safe }}
+
+  </body>
+</html>

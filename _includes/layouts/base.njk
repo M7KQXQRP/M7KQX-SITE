@@ -1,45 +1,85 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title or metadata.title }}</title>
-    <meta name="description" content="{{ description or metadata.description }}">
+---
+layout: layouts/main.njk
+---
+<div class="w-full min-h-screen bg-slate-900 text-slate-100 font-sans antialiased p-4 md:p-6">
+  <div class="max-w-6xl mx-auto">
     
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
-    
-    <header class="max-w-6xl mx-auto pt-4 px-4">
-<img src="/static/img/website-banner-cropped.png" alt="M7KQX Radio Banner" class="w-full h-auto object-cover">
-      </div>
-
-      <nav class="bg-slate-900 border-x border-b border-slate-800 rounded-b-xl px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <div class="bg-slate-800 p-2 rounded-lg border border-slate-700 hidden sm:block">
-            📻
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+      
+      <div class="lg:col-span-2 space-y-6">
+        
+        <div class="w-full bg-gradient-to-r from-slate-950 to-slate-800 border border-slate-700 rounded-xl p-6 shadow-xl relative overflow-hidden">
+          <div class="relative z-10">
+            <h1 class="text-4xl font-black tracking-wider text-sky-400">M7KQX</h1>
+            <p class="text-xs text-slate-400 uppercase tracking-widest mt-1 font-medium">Amateur Radio Station & Project Log</p>
           </div>
-          <div>
-            <a href="/" class="text-xl font-black tracking-wider text-slate-100 block">M7KQX</a>
-            <span class="text-xs tracking-widest text-cyan-400 font-mono font-bold block uppercase">Amateur Radio</span>
+          <div class="absolute right-4 bottom-2 opacity-5 text-7xl font-black text-slate-400 select-none pointer-events-none">RADIO</div>
+        </div>
+
+        <nav class="bg-slate-800 border border-slate-700 rounded-xl p-2 flex flex-wrap gap-2 text-sm font-semibold shadow-md">
+          <a href="/" class="text-sky-400 hover:text-sky-300 px-3 py-2 rounded-lg bg-slate-900/60 transition">Home</a>
+          <a href="/category/builds/" class="text-slate-300 hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-700/50 transition">Antenna Builds</a>
+          <a href="/category/reviews/" class="text-slate-300 hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-700/50 transition">Equipment Reviews</a>
+          <a href="/category/articles/" class="text-slate-300 hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-700/50 transition">Articles</a>
+        </nav>
+
+        <div class="bg-slate-800 border border-slate-700 rounded-xl p-5 shadow-xl">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-4 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
+            Live Station Profile
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700/60">
+              <span class="block text-slate-400 uppercase font-medium mb-1">Main Rig</span>
+              <span class="font-bold text-slate-200">Xiegu G90 (20W QRP)</span>
+            </div>
+            <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700/60">
+              <span class="block text-slate-400 uppercase font-medium mb-1">Antenna System</span>
+              <span class="font-bold text-slate-200">DIY EFHW (End-Fed Half-Wave)</span>
+            </div>
+            <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700/60">
+              <span class="block text-slate-400 uppercase font-medium mb-1">Modes of Choice</span>
+              <span class="font-bold text-slate-200">FT8 / RTTY / PSK31 / CW</span>
+            </div>
           </div>
         </div>
+
+        <main class="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-xl text-slate-100">
+          {{ content | safe }}
+        </main>
+
+      </div>
+
+      <div class="space-y-6 lg:sticky lg:top-6">
         
-        <ul class="flex items-center gap-6 text-sm font-medium text-slate-400">
-          <li><a href="/" class="hover:text-cyan-400 transition text-slate-200">Home</a></li>
-          <li><a href="/posts/" class="hover:text-cyan-400 transition">Logbook & Reviews</a></li>
-          <li><a href="/gallery/" class="hover:text-cyan-400 transition">Gallery</a></li>
-          <li><a href="/about/" class="hover:text-cyan-400 transition">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+        <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 shadow-xl">
+          <h3 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-3 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            QRZ.com Live Logbook
+          </h3>
+          
+          <div class="w-full flex justify-center">
+            
+            <div class="w-[310px] bg-slate-950 rounded-lg border border-slate-700 overflow-hidden p-2 shadow-inner">
+              
+              <iframe 
+                src="https://logbook.qrz.com/lbstat/M7KQX/" 
+                class="w-[335px] min-h-[360px] rounded border-0 bg-white invert-[0.93] hue-rotate-180 contrast-[1.25] brightness-[0.95]"
+                title="M7KQX QRZ Logbook Summary"
+                scrolling="no">
+              </iframe>
 
-    <main class="max-w-6xl mx-auto px-4 py-8">
-      {{ content | safe }}
-    </main>
+            </div>
 
-    <footer class="max-w-6xl mx-auto px-4 py-8 mt-12 border-t border-slate-900 text-center text-xs text-slate-600 font-mono">
-      © 2026 Christopher Webster (M7KQX). All rights reserved.
-    </footer>
-  </body>
-</html>
+          </div>
+          
+          <p class="text-[10px] text-slate-500 text-center mt-2 italic">
+            Dynamically streaming secure station telemetry from QRZ databases.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
